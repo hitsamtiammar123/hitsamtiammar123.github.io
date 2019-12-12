@@ -1,0 +1,88 @@
+/*Bagian Universal*/
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: gray;
+}
+
+header{
+    position: fixed;
+    width: 100%;
+    background-color: aqua;
+}
+
+section{
+    padding: 120px 0;
+}
+
+#logo{
+    float: left;
+    padding: 20px;
+    margin-left: 30px;
+    color: blue;
+    font-size: 36px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+nav ul li{
+    display: inline-block;
+    padding: 30px;
+}
+
+nav ul a {
+    text-decoration: none;
+    color: black;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+#contact-color{
+    color: blue;
+    border: 2px blue solid;
+    border-radius: 20px;
+    padding: 10px;
+    margin-right: 20px;
+}
+
+nav{
+    text-align: right;
+}
+
+.content{
+    text-align:center;
+    font-size:42px;
+
+}
+.main{
+    margin: 30px auto ;
+    background-color:white;
+    width:60%;
+    height:250px;
+    padding:20px;
+    text-align:justify;
+    border-radius:20px;
+    font-size:24px;
+}
+
+.tagline{
+    text-align:center;
+    /* margin: 50px auto; */
+}
+
+footer{
+    background-color: black;
+    padding: 30px;
+}
+
+h5{
+    color: white;
+    text-align: center;
+}
+
+/* Bagian Contact Us */

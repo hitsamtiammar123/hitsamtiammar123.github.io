@@ -1,0 +1,37 @@
+.main{
+    height: auto;
+}
+
+.form-control{
+    margin-top:20px;
+}
+
+.form-control input,
+.form-control textarea{
+    width: 100%;
+    resize: none;
+}
+
+.welcome{
+    font-size: 42px;
+    margin: 60px;
+}
+
+.form-control-submit .submit{
+    border-radius: 20px;
+    border: 1px solid gray;
+    background-color: gray;
+    color: black;
+    width: 170px;
+    height: 50px;
+    padding: 10px;
+    margin: 10px;
+    font-size: 24px;
+    font-weight: bold;
+    
+}
+
+.form-control-submit{
+    text-align: center;
+    margin: 30px auto;
+}

@@ -1,0 +1,125 @@
+/*Bagian Universal*/
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: gray;
+}
+
+header{
+    position: fixed;
+    width: 100%;
+    background-color: aqua;
+}
+
+section{
+    padding: 120px 0;
+}
+
+#logo{
+    float: left;
+    padding: 20px;
+    margin-left: 30px;
+    color: blue;
+    font-size: 36px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+nav ul li{
+    display: inline-block;
+    padding: 30px;
+}
+
+nav ul a {
+    text-decoration: none;
+    color: black;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+#contact-color{
+    color: blue;
+    border: 2px blue solid;
+    border-radius: 20px;
+    padding: 10px;
+    margin-right: 20px;
+}
+
+nav{
+    text-align: right;
+}
+
+.welcome{
+    text-align: center;
+    font-size: 42px;
+}
+
+h2{
+    text-align: center;
+    margin: 20px 0;
+    color: whitesmoke;
+    margin-bottom: 70px;
+}
+
+.main{
+    background-color: white;
+    margin: auto;
+    width: 80%;
+    height: 1200px;
+    border-radius: 20px;
+}
+
+form{
+    width: 25%;
+    height: 280px;
+    background-color: white;
+    border-radius: 15px;
+    text-align: center;
+    margin: 20px auto;
+    padding: 5px;
+    line-height: 1.5;
+}
+
+form, p{
+    font-size: 15px;
+}
+.judul{
+    font-size: 20px;
+    font-weight: bold;
+    color: blue;
+    margin: 10px auto;
+}
+
+.subjudul{
+    font-size: 12px;
+    color: black;
+    margin: 5px;
+}
+
+.submit{
+    border-radius: 20px;
+    border: 1px solid gray;
+    background-color: gray;
+    color: black;
+    width: 150px;
+    height: 40px;
+    padding: 10px;
+    margin: 13px;
+}
+
+footer{
+    background-color: black;
+    padding: 30px;
+}
+
+h5{
+    color: white;
+    text-align: center;
+}
+
+/* Bagian Contact Us */
