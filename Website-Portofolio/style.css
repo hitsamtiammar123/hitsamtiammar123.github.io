@@ -10,14 +10,21 @@
 }
 
 .container{
-    margin: 20px auto;
+    margin: 30px auto;
     width: 80%;
+    clear:both;
 }
 
 .container .container-title{
     text-align: center;
-    border-bottom: 1px thick gray;
+    border-bottom: 3px solid #5c5a54;
+    padding-bottom: 10px;
 }
+
+.p-font *{
+    font-family: 'Arvo' !important;
+}
+
 
 #main-header .container{
     width:50%;
@@ -45,4 +52,31 @@
     height: 700px;
     width: 100%;
     position:relative;
+}
+
+#me{
+    height: 300px;
+    margin-bottom: 30px;
+}
+
+.prog-lang{
+    width: 20%;
+    height: 300px;
+    margin:20px;
+}
+
+.col-4,.col-6,.col-10{
+    float:left;
+}
+
+.col-4{
+    width:40%;
+}
+
+.col-6{
+    width:60%;
+}
+
+.col-10{
+    width: 100%;
 }
