@@ -8,6 +8,7 @@
     width: 100%;
     background-image:url('img/gunung.jpg');
     opacity:0.7;
+    background-repeat: no-repeat;
 }
 
 .container{
@@ -65,9 +66,10 @@
 }
 
 .prog-lang{
-    width: 20%;
-    height: 300px;
+    width: 200px;
+    height: 200px;
     margin:28px;
+    
 }
 
 .xp-img{
