@@ -2,6 +2,7 @@
     font-family:'Lobster';
 }
 
+
 #main-header{
     height: 500px;
     width: 100%;
@@ -26,8 +27,12 @@
 }
 
 
-#main-header .container{
+#main-header .container,
+#main-footer .container{
     width:50%;
+}
+
+#main-header .container{
     padding-top: 100px;
 }
 
@@ -108,4 +113,20 @@
 
 .pt-30{
     padding-top: 30px;
+}
+
+#main-footer{
+    width: 100%;
+    background-color: #364f32;
+    height: 100px;
+    clear:both;
+}
+
+#main-footer .container{
+    padding-top: 40px;
+}
+
+.sosmed{
+    width: 50px;
+    height: 50px;
 }
