@@ -8,7 +8,7 @@
     <link href="https://fonts.googleapis.com/css?family=PT+Sans&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="cari.css">
-    <script src=""></script>
+   
 </head>
 <body>
     <header class="main-header">
@@ -17,32 +17,14 @@
     <section class="container">
         <div class="col-10">
             <div class="col-8">
-                <input type="text" class="text-search" placeholder="Silahkan cari sepatu yang anda ingin cari">
+                <input type="text" class="text-search" id="text-sepatu-search" placeholder="Silahkan cari sepatu yang anda ingin cari">
             </div>
             <div class="col-2">
                 <button class="btn-cari">Cari</button>
             </div>
         </div>
-        <div class="col-10" id="content">
-            <div class="col-10 sepatu-content">
-                <div class="col-2">
-                    <img src="img/sepatu-1.webp" class="img-sepatu">
-                </div>
-                <div class="col-8 detail-sepatu">
-                    <h2>Ini Contoh sepatu</h2>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis veritatis nesciunt quis provident alias magni accusantium illum, veniam sequi eaque, cumque id dolor eius temporibus neque voluptatum sint consequatur! Repellendus!</p>
-                </div>
-            </div>
-            <div class="col-10 sepatu-content">
-                <div class="col-2">
-                    <img src="img/sepatu-1.webp" class="img-sepatu">
-                </div>
-                <div class="col-8 detail-sepatu">
-                    <h2>Ini Contoh sepatu</h2>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis veritatis nesciunt quis provident alias magni accusantium illum, veniam sequi eaque, cumque id dolor eius temporibus neque voluptatum sint consequatur! Repellendus!</p>
-                </div>
-            </div>
-        </div>
+        <div class="col-10" id="content"></div>
     </section>
+    <script src="cari.js"></script>
 </body>
 </html>
