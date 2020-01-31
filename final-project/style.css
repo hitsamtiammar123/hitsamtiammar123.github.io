@@ -1,0 +1,47 @@
+.main-header{
+    text-align: center;
+    font-family: 'PT Sans';
+}
+
+.container{
+    margin: 30px auto;
+    width: 80%;
+    clear:both;
+}
+.col-5{
+    width: 50%;
+    float: left;
+}
+
+.col-10{
+    width: 100%;
+    float: left;
+}
+
+.col-2-5{
+    width:25%;
+    float:left;
+}
+
+.col-2{
+    width: 20%;
+    float: left;
+}
+
+.col-8{
+    width: 80%;
+    float: left;
+}
+
+.form-control{
+    width: 100%;
+}
+
+.main-header a{
+    text-decoration: none;
+}
+
+.main-header .title{
+    color:black;
+}
+
