@@ -25,6 +25,23 @@
     return result;
   }
 
+  function findEmptySpaces(grid){
+    var result = [];
+    for(var i = 0; i < grid.length; i++){
+      var g = grid[i];
+      for(var j = 0; j < g.length; j++){
+        var v = g[j];
+        if(v === ''){
+          result.push({
+            i: i,
+            j: j
+          });
+        }
+      }
+    }
+    return result;
+  }
+
   function setChar(self, context, pos, flag){
     if(flag === true){
       self.innerHTML = 'X';
@@ -159,6 +176,8 @@
 
   function onGridClick(context){
     return function(){
+      var emptySpaces = findEmptySpaces(context.grid);
+      console.log(emptySpaces, 'player');
       var grid = context.grid;
       var nodeList = context.nodeList;
       var i = context.i;
@@ -171,7 +190,7 @@
         }
         setChar(self, context, pos, true);
         var status = checkCondition(grid, nodeList, pos, true);
-        console.log({status, isPlayerTurn});
+        //console.log({status, isPlayerTurn});
         if(status === null){
           isPlayerTurn = false;
           setInfoText(false);
@@ -191,22 +210,21 @@
   function onOpponentTurn(context){
     var nodeList = context.nodeList;
     var grid = context.grid;
-    var i,j, node, timeoutLoop = 0;
-    var timeoutVal = nodeList.length * 50;
-    do{
-      i = Math.floor(Math.random() * nodeList.length);
-      j = Math.floor(Math.random() * nodeList.length);
-      node = nodeList[i][j];
-      timeoutLoop++;
-    }while(grid[i][j] !== '' && timeoutLoop < timeoutVal);
-    if(timeoutLoop < timeoutVal){
+    var node;
+    var emptySpaces = findEmptySpaces(grid);
+    console.log(emptySpaces, grid);
+    if(emptySpaces.length > 1){
+      var selectedIndex = Math.floor(Math.random() * emptySpaces.length);
+      var selected = emptySpaces[selectedIndex];
       var pos = {
-        i: i,
-        j: j
+        i: selected.i,
+        j: selected.j
       };
+      console.log({selected})
+      node = nodeList[pos.i][pos.j];
       setChar(node, context, pos, false);
       var status = checkCondition(grid, nodeList, pos, false);
-      console.log({status, isPlayerTurn});
+      //console.log({status, isPlayerTurn});
       if(status === null){
         isPlayerTurn = true;
         setInfoText(true);
@@ -218,7 +236,14 @@
       }
     }
     else{
-      gameOver('DRAW');
+      if(emptySpaces.length === 1){
+        var pos = emptySpaces[0];
+        node = nodeList[pos.i][pos.j];
+        setChar(node, context, pos, false);
+      }
+      setTimeout(function(){
+        gameOver('DRAW');
+      }, 500);
     }
   }
 
