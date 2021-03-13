@@ -94,7 +94,7 @@
     };
   }
 
-  function checkGridRecursively(grid, i, j, flag, direction, saved_directions){
+  function checkGridRecursively(grid, i, j, flag, direction, saved_directions, isPlayerTurn){
     //console.log(grid, i, j, flag, direction)
     //console.log('condition',i >= 0 && i < gridNum && j >= 0 && j < gridNum)
     if(i >= 0 && i < grid.length && j >= 0 && j < grid.length){
@@ -123,7 +123,7 @@
       nextI = nextDirection.i;
       nextJ = nextDirection.j;
       
-     return counter + checkGridRecursively(grid, nextI, nextJ, flag, direction, saved_directions);
+     return counter + checkGridRecursively(grid, nextI, nextJ, flag, direction, saved_directions, isPlayerTurn);
     }
     return 0;
   }
@@ -136,17 +136,16 @@
       saved_directions.push(pos);
       for(var j = 0; j < 2; j++){
         var nextDir = checkPositionDirection(pos.i, pos.j, direction, j);
-        counterList += checkGridRecursively(grid, nextDir.i, nextDir.j, j, direction, saved_directions);
+        counterList += checkGridRecursively(grid, nextDir.i, nextDir.j, j, direction, saved_directions, flag);
       }
       //console.log({counterList, isPlayerTurn, pos, direction});
       if(counterList === grid.length){
-        console.log({saved_directions});
         for(var i = 0; i < saved_directions.length;i++){
           var dir = saved_directions[i];
           var node = nodeList[dir.i][dir.j];
           node.classList.add('win-char');
         }
-        console.log({direction});
+        //console.log({direction});
         if(isPlayerTurn){
           return 'PLAYER_WIN';
         }
