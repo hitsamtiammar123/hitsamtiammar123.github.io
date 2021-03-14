@@ -13,12 +13,31 @@
     'DIAGONAL_RIGHT'
   ];
 
+  var dummyBoard = [
+    ['X', 'O', 'X'],
+    ['O', 'O', 'X'],
+    ['', 'X', 'O']
+  ];
+
   function makeGrid(gridNum){
     var result = [];
     for(var i = 0 ; i < gridNum; i++){
       var r = [];
       for(var j = 0; j < gridNum; j++){
         r.push('');
+      }
+      result.push(r);
+    }
+    return result;
+  }
+
+  function copyGrid(grid){
+    var result = [];
+    for(var i = 0; i < grid.length; i++){
+      var g = grid[i];
+      var r = [];
+      for(var j = 0; j < g.length; j++){
+        r.push(g[j]);
       }
       result.push(r);
     }
@@ -40,6 +59,95 @@
       }
     }
     return result;
+  }
+
+  function minimax(grid, flag, pos){
+    var emptySpaces = findEmptySpaces(grid);
+    var curr = {
+      parent: grid,
+      val: 0,
+      i: -1,
+      j: -1
+    };
+    var char;
+    var currVal;
+    if(flag){
+      char = 'O';
+      currVal = -Infinity
+    }
+    else{
+      char = 'X';
+      currVal = Infinity;
+    }
+    var condition, copy;
+    for(var i = 0; i < emptySpaces.length; i++){
+      var empty = emptySpaces[i];
+      copy = copyGrid(grid);
+      copy[empty.i][empty.j] = char;
+      condition = checkCondition(copy, null, empty, !flag);
+      if(condition === null){
+        var temp = minimax(copy, !flag, empty);
+        if(flag){
+          if(temp.val > currVal){
+            currVal = temp.val;
+          }
+        }
+        else{
+          if(temp.val < currVal){
+            currVal = temp.val
+          }
+        }
+        curr.val = temp.val;
+        curr.i = empty.i;
+        curr.j = empty.j;
+      }
+      else{
+        if(condition === 'OPPONENT_WIN'){
+          curr.val = 1;
+        }
+        else if(condition === 'PLAYER_WIN'){
+          curr.val = -1;
+        }
+        curr.i = empty.i;
+        curr.j = empty.j;
+        break;
+      }
+    }
+
+    if(emptySpaces.length === 0){
+      condition = checkCondition(grid, null, pos, flag);
+      if(condition !== null){
+        if(condition === 'PLAYER_WIN'){
+          curr.val = -1;
+        }
+        else if(condition === 'OPPONENT_WIN'){
+          curr.val = 1;
+        }
+      }
+      curr.i = pos.i;
+      curr.j = pos.j;
+    }
+    return curr;
+  }
+
+  function findBestMove(grid){
+    var emptySpaces = findEmptySpaces(grid);
+    if(emptySpaces.length !== 0){
+      if(grid.length === 3){
+        var result = minimax(grid, true, null);
+        return result;
+      }
+      else{
+        var selectedIndex = Math.floor(Math.random() * emptySpaces.length);
+        var selected = emptySpaces[selectedIndex];
+        return selected;
+      }
+    }
+    return {
+      i: -1,
+      j: -1,
+      parent: grid
+    }
   }
 
   function setChar(self, context, pos, flag){
@@ -157,7 +265,7 @@
       }
       //console.log({counterList, isPlayerTurn, pos, direction});
       if(counterList === grid.length){
-        for(var i = 0; i < saved_directions.length;i++){
+        for(var i = 0; i < saved_directions.length && nodeList !== null;i++){
           var dir = saved_directions[i];
           var node = nodeList[dir.i][dir.j];
           node.classList.add('win-char');
@@ -177,7 +285,7 @@
   function onGridClick(context){
     return function(){
       var emptySpaces = findEmptySpaces(context.grid);
-      console.log(emptySpaces, 'player');
+      //console.log(emptySpaces, 'player');
       var grid = context.grid;
       var nodeList = context.nodeList;
       var i = context.i;
@@ -212,15 +320,14 @@
     var grid = context.grid;
     var node;
     var emptySpaces = findEmptySpaces(grid);
-    console.log(emptySpaces, grid);
-    if(emptySpaces.length > 1){
-      var selectedIndex = Math.floor(Math.random() * emptySpaces.length);
-      var selected = emptySpaces[selectedIndex];
+    var bestMove = findBestMove(grid);
+    // console.log(emptySpaces, grid);
+    if(bestMove.i !== -1 && bestMove.j !== -1){
       var pos = {
-        i: selected.i,
-        j: selected.j
+        i: bestMove.i,
+        j: bestMove.j
       };
-      console.log({selected})
+      //console.log({selected})
       node = nodeList[pos.i][pos.j];
       setChar(node, context, pos, false);
       var status = checkCondition(grid, nodeList, pos, false);
@@ -253,6 +360,7 @@
       return;
     }
     var grid = makeGrid(gridNum);
+    //var grid = copyGrid(dummyBoard);
     var nodeList = [];
     var limitWidth = gridNum * 100;
     for(var i = 0; i < gridNum; i++){
