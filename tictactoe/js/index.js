@@ -3,6 +3,7 @@
   var gridNum = document.getElementById('grid-num');
   var start = document.getElementById('start');
   var infoText = document.getElementById('info-text');
+  var boardChild = document.getElementById('board-child');
   var isPlayerTurn = true;
   var isStart = false;
   var screenWidth = window.innerWidth;
@@ -366,13 +367,13 @@
     for(var i = 0; i < gridNum; i++){
       var r = document.createElement('div');
       var n = [];
-      r.className = 'content d-flex px-4';
+      r.className = 'content d-flex';
       if(limitWidth < screenWidth){
         r.className += ' justify-content-center';
       }
       for(var j = 0 ; j < gridNum; j++){
         var c = document.createElement('div');
-        c.className = 'grid d-flex align-items-center justify-content-center';
+        c.className = 'grid d-flex justify-content-center align-items-center';
         if(i === 0) {
           c.className += ' border-top-none';
         }
@@ -398,12 +399,12 @@
         n.push(c);
       }
       nodeList.push(n);
-      board.appendChild(r)
+      boardChild.appendChild(r)
     }
   }
 
   function startGame(){
-    board.innerHTML = '';
+    boardChild.innerHTML = '';
     setInfoText(true); 
     var num = parseInt(gridNum.value);
     makeBoard(num);
