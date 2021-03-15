@@ -332,8 +332,9 @@
       node = nodeList[pos.i][pos.j];
       setChar(node, context, pos, false);
       var status = checkCondition(grid, nodeList, pos, false);
+      emptySpaces = findEmptySpaces(grid);
       //console.log({status, isPlayerTurn});
-      if(status === null){
+      if(status === null && emptySpaces.length !== 0){
         isPlayerTurn = true;
         setInfoText(true);
       }
@@ -417,6 +418,7 @@
     infoText.innerHTML = '';
     switch(status){
       case 'DRAW':
+      case null:
         c = confirm('Game is draw. do you want to restart the game?');
       break;
       case 'PLAYER_WIN':
