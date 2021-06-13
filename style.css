@@ -1,0 +1,134 @@
+*{
+    font-family:'Lobster';
+}
+
+
+#main-header{
+    height: 500px;
+    width: 100%;
+    background-image:url('img/gunung.jpg');
+    opacity:0.7;
+    background-repeat: no-repeat;
+}
+
+.container{
+    margin: 30px auto;
+    width: 80%;
+    clear:both;
+}
+
+.container .container-title{
+    text-align: center;
+    border-bottom: 3px solid #5c5a54;
+    padding-bottom: 10px;
+}
+
+.p-font *{
+    font-family: 'Arvo' !important;
+}
+
+
+#main-header .container,
+#main-footer .container{
+    width:50%;
+}
+
+#main-header .container{
+    padding-top: 100px;
+}
+
+#main-header .container h1,#main-header .container h2{
+    text-align: center;
+}
+
+#main-header .container h1{
+    font-size: 50px;
+    font-weight: bold;
+}
+
+#main-header .container h2{
+    font-size: 40px;
+    color: white;
+}
+
+
+#jumbotron{
+    background-image: url('img/ruang-komputer-3.jpg');
+    background-repeat: no-repeat;
+    height: 700px;
+    width: 100%;
+    position:relative;
+}
+
+#me{
+    height: 300px;
+    margin-bottom: 30px;
+}
+
+.prog-lang{
+    width: 200px;
+    height: 200px;
+    margin:28px;
+    
+}
+
+.xp-img{
+    width: 100%;
+    height: 200px;
+}
+
+.xp-description{
+    padding: auto 0;
+}
+
+.col-2,.col-4,.col-6,.col-10,.col-8{
+    float:left;
+}
+
+.col-2{
+    width: 20%;
+}
+
+.col-4{
+    width:40%;
+}
+
+.col-6{
+    width:60%;
+}
+
+.col-8{
+    width: 80%;
+}
+
+.col-10{
+    width: 100%;
+}
+
+.mb-20{
+    margin-bottom: 20px;
+}
+
+.pt-20{
+    padding-top: 20px;
+}
+
+.pt-30{
+    padding-top: 30px;
+}
+
+#main-footer{
+    width: 100%;
+    background-color: #364f32;
+    height: 100px;
+    clear:both;
+}
+
+#main-footer .container{
+    padding-top: 40px;
+}
+
+.sosmed{
+    width: 50px;
+    height: 50px;
+}

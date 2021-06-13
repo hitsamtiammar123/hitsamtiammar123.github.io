@@ -157,7 +157,7 @@
       self.classList.add('X-char');
       context.grid[pos.i][pos.j] = 'X';
     }
-    else if(flag === false){
+    else if(flag === false){k
       self.innerHTML = 'O';
       self.classList.add('O-char');
       context.grid[pos.i][pos.j] = 'O';
